@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 struct node{
-    struct node *p,*n;
+    struct node *p,*n;  //p=previous address and n =next address
     int d;
 };
 struct node* head= NULL;
@@ -145,26 +145,33 @@ void show(){
         }
     }
 }
+int position(int val,int p){
+    struct node* i =head;
+    int k=0;
+    while(i!=NULL){
+        k++;
+        if(i->d==val){
+            return k;
+        }
+        i=i->n;
+    }
+    
+}
 void search(){
     if(head==NULL){
         printf("List is empty.");
     }
     else
     {
-    int no,po=1;
+    int s,po=0;
     printf("enter the number to be searched : ");
-    scanf("%d",&no);
-    printf("\n");
-    struct node *i =head;
-    while(i->d!=no || i->n!=NULL){
-        po++;
-        i=i->n;
-    }
-    if(po!=0){
-        printf("The Number %d is At %d Position.",no,po);
-    }
-    else{
-        printf("The Number %d is not present.",no);
+    scanf("%d",&s);
+    // struct node *i =head;
+    position(s,po);
+    if(position(s,po)){
+        printf("The Number %d is At %d Position.",s,position(s,po));
+    }else{
+        printf("the number is not.");
     }
     }
 }
@@ -234,11 +241,79 @@ struct node* reverse(struct node *i){
         printf("<--%d-->",i->d);
 }
 
+int check(int val){
+    struct node* i =head;
+    int k=0;
+    while(i!=NULL){
+        if(i->d==val){
+            return 1;
+            k++;
+        }
+        i=i->n;
+    }
+    
+}
+
+void replace(){
+    int val;
+    if(head==NULL){
+        printf("\nList is Empty.");
+        printf("\nenter a value to be inserted : ");
+        scanf("%d",&val);
+        insert_f(val);
+        printf("\nNow the List contain : ");
+        show();
+        replace();
+    }
+    else{
+        int r;
+        printf("\nEnter the value to replaced : ");
+        scanf("%d",&val);
+        check(val);
+        if(check(val)){
+        printf("\nEnter the value to be replaced with : ");
+        scanf("%d",&r);
+        
+        struct node* tem = (struct node*)malloc(sizeof(struct node));
+        tem->d=r;
+        tem->p =NULL;
+        tem->n =NULL;
+        
+        struct node*i = head;
+        if(i->d==val){
+           tem->n=i->n;
+           head=tem;
+        }
+        else{
+            
+        while(i->d!=val){
+            i=i->n;
+            if(i->d==val && i->n!=NULL){
+                tem->n= i->n;
+                tem->p =i->p;
+                i->n->p=tem;
+                i->p->n=tem;
+            }
+            if(i->n==NULL){
+                tem->p = i->p;
+                i->p->n=tem;
+            }
+        }
+        }
+        
+        }
+        else{
+            printf("\n%d is not in the List.",val);
+            printf("\nEnter valid Number.");
+            replace();
+        }
+    }
+}
 
 int main(){
     int c,val;
-    while(c!=11){
-    printf("\n1.insert_first\n2.insert_last\n3.delete_first\n4.delete_last\n5.show\n6.delete_random\n7.insert_random\n8.search\n9.sorting\n10.reverse\n11.exit");
+    while(c!=12){
+    printf("\n1.insert_first\n2.insert_last\n3.delete_first\n4.delete_last\n5.show\n6.delete_random\n7.insert_random\n8.search\n9.sorting\n10.reverse\n11.replace\n12.exit");
     printf("\nenter your choice : ");
     scanf("%d",&c);
     switch(c){
@@ -281,9 +356,259 @@ int main(){
                 reverse(i);
                 break;
         case 11:
+                replace();
+                break;
+        case 12:
                 break;
         default:
             printf("enter a valid number.");
     }
     }
 }
+/*OUTPUT
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 1
+enter the value to be inserted : 11
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 2
+enter the value to be inserted : 12
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 1
+enter the value to be inserted : 13
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 2
+enter the value to be inserted : 14
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 1
+enter the value to be inserted : 5
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 5
+<--5--><--13--><--11--><--12--><--14-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 8
+enter the number to be searched : 13
+The Number 13 is At 2 Position.
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 5
+<--5--><--13--><--11--><--12--><--14-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 9
+Enter - 1.Ascending Order
+	2.Descending Order
+enter your choice : 1
+List in Ascending Order: <--5--><--11--><--12--><--13--><--14-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 9
+Enter - 1.Ascending Order
+	2.Descending Order
+enter your choice : 2
+List in Ascending Order: <--14--><--13--><--12--><--11--><--5-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 10
+<--5--><--11--><--12--><--13--><--14-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 5
+<--14--><--13--><--12--><--11--><--5-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 11
+Enter the value to replaced : 5
+Enter the value to be replaced with : 15
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 5
+<--14--><--13--><--12--><--11--><--15-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 4
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 5
+<--14--><--13--><--12--><--11-->
+1.insert_first
+2.insert_last
+3.delete_first
+4.delete_last
+5.show
+6.delete_random
+7.insert_random
+8.search
+9.sorting
+10.reverse
+11.replace
+12.exit
+enter your choice : 12
+
+*/
