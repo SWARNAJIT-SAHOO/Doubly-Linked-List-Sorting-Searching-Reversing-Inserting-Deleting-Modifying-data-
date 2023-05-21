@@ -115,13 +115,13 @@ class doubly_linkedlist {
                 delete_f(l);
             }
             int k=1,c=0;
-            while(k!=po ){
+            while(k!=po){
                 j=i;
                 i=i.n;
                 if(i==null){
                     System.out.println("INVALID POSITION .");
                      c=1;
-                    break;
+                    
                 }
                 k++;
             }
@@ -360,3 +360,429 @@ class doubl{
         sc.close();
     }
 }
+
+/*OUTPUT */
+/*
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 1
+
+enter the number to be inserted : 11
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 2
+
+enter the number to be inserted : 12
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 2
+
+enter the number to be inserted : 13
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 2
+
+enter the number to be inserted : 14
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 2
+
+enter the number to be inserted : 15
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 5
+
+<--11--><--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 3
+
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 5
+
+<--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 4
+
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 5
+
+<--12--><--13--><--14-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 1
+
+enter the number to be inserted : 11
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 2
+
+enter the number to be inserted : 15
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 5
+
+<--11--><--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 6
+
+Enter a the POSITION to DELETE : 1
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 5
+
+<--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 7
+
+enter the number to be inserted : 0
+Enter the POSITION to insert : 0
+NEW LIST :
+<--0--><--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 11
+
+Enter the value TO BE replace  : 0
+Enter the NEW value : 11
+NEW LIST :
+<--11--><--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 10
+
+ REVERSED LIST :
+<--15--><--14--><--13--><--12--><--11-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 8
+
+Enter the number to SEARCH : 13
+The number 13 is at 3 POSITION
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 5
+
+<--11--><--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 9
+
+        1.Asecending order
+        2.descending order
+Enter your choice : 2
+
+<--15--><--14--><--13--><--12--><--11-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 9
+
+        1.Asecending order
+        2.descending order
+Enter your choice : 1
+
+<--11--><--12--><--13--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 11
+
+Enter the value TO BE replace  : 13
+Enter the NEW value : 3
+NEW LIST :
+<--11--><--12--><--3--><--14--><--15-->
+*-----------------------*
+|       1.insert_first  |
+|       2.insert_last   |
+|       3.delete_first  |
+|       4.delete_last   |
+|       5.show          |
+|       6.delete_random |
+|       7.insert_random |
+|       8.search        |
+|       9.sorting       |
+|       10.reverse      |
+|       11.replace      |
+|       12.exit         |
+*-----------------------*
+Enter Your Choice : 12*/
