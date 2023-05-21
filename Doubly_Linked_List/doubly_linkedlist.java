@@ -1,36 +1,36 @@
 import java.util.*;
 class doubly_linkedlist {
-    doubly_linkedlist node;
-    node head;
+    //doubly_linkedlist node;
     class node{
-    int d;
-    node n,p;
-    node(int data){
-        d =data;
-        n = null;
-        p=null;
+        int d;
+        node n,p;
+        node(int data){
+            d =data;
+            n = null;
+            p=null;
+        }
     }
-    }
+    node head=null;
     Scanner p = new Scanner(System.in); 
 
-    void insert_f(doubly_linkedlist l,int val){
+    void insert_f(int val){
         node tem = new node(val);
-        if(l.head==null){
-            l.head=tem;
+        if(head==null){
+            head=tem;
         }
         else{
-            l.head.p=tem;
-            tem.n=l.head;
-            l.head=tem;
+            head.p=tem;
+            tem.n=head;
+            head=tem;
         }
     }
-    void insert_l(doubly_linkedlist l,int val){
+    void insert_l(int val){
         node tem = new node(val);
-        if(l.head==null){
-            l.head=tem;
+        if(head==null){
+            head=tem;
         }
         else{
-            node i =l.head;
+            node i =head;
             while(i.n!=null){
                 i=i.n;
             }
@@ -38,21 +38,21 @@ class doubly_linkedlist {
             tem.p=i;
         }
     }
-    void insert_random(doubly_linkedlist l,int val){
-        if(l.head==null){
+    void insert_random(int val){
+        if(head==null){
             System.out.println("List is empty so, -");
-            insert_f(l,val);
+            insert_f(val);
         }
         else{
             node tem = new node(val);
             System.out.print("Enter the POSITION to insert : ");
             int po= p.nextInt();
-            node i =l.head;
+            node i =head;
             // node j=i;
             if(po==0){
                 tem.n=i;
                 i.p=tem;
-                l.head=tem;
+                head=tem;
             }
             else{
                 int k=1;
@@ -71,28 +71,28 @@ class doubly_linkedlist {
                 }
             }
             System.out.println("NEW LIST : ");
-            show(l);
+            show();
         }
     }
 
-    void delete_f(doubly_linkedlist l){
-        if(l.head==null){
+    void delete_f(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
-            node i =l.head;
-            l.head=i.n;
+            node i =head;
+            head=i.n;
         }
     }
 
-    void delete_l(doubly_linkedlist l){
-        if(l.head==null){
+    void delete_l(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
-            node i =l.head;
+            node i =head;
             if(i.n==null){
-                l.head=null;
+                head=null;
             }
             else{
                 while(i.n!=null){
@@ -102,17 +102,17 @@ class doubly_linkedlist {
             }
         }
     }
-    void delete_random(doubly_linkedlist l){
-        if(l.head==null){
+    void delete_random(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
             System.out.print("Enter a the POSITION to DELETE : ");
             int po = p.nextInt();
-            node i = l.head;
+            node i = head;
             node j= i;
             if(po==1){
-                delete_f(l);
+                delete_f();
             }
             int k=1,c=0;
             while(k!=po){
@@ -126,7 +126,7 @@ class doubly_linkedlist {
                 k++;
             }
             if(i.n==null && c!=1){
-                delete_l(l);
+                delete_l();
             }
             else if(c!=1){
                 i.n.p=j;
@@ -134,12 +134,12 @@ class doubly_linkedlist {
             }
         }
     }
-    void show(doubly_linkedlist l){
-        if(l.head==null){
+    void show(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
-            node i =l.head;
+            node i =head;
             while(i!=null){
                 System.out.print("<--"+i.d+"-->");
                 i=i.n;
@@ -147,15 +147,15 @@ class doubly_linkedlist {
         }
         System.out.println();
     }
-    void search(doubly_linkedlist l){
-        if(l.head==null){
+    void search(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
             System.out.print("Enter the number to SEARCH : ");
             int n1 = p.nextInt();
             int po=1,k=0;
-            node i =l.head;
+            node i =head;
             while(i.d!=n1){
                 i=i.n;
                 po++;
@@ -163,7 +163,7 @@ class doubly_linkedlist {
                     System.out.println();
                     System.out.println(n1+"--INVALID NUMBER");
                     System.out.println("Enter a valid Number.");
-                    search(l);
+                    search();
                     k=1;
                     break;
                 }
@@ -173,8 +173,8 @@ class doubly_linkedlist {
             }
         }
     }
-    void replace(doubly_linkedlist l){
-        if(l.head==null){
+    void replace(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
@@ -183,12 +183,12 @@ class doubly_linkedlist {
                 System.out.print("Enter the NEW value : ");
                 int r= p.nextInt();
                 node tem= new node(r);
-                node i =l.head;
+                node i =head;
                 int c=0;
                 if(v==i.d){
-                    tem.n=l.head.n;
+                    tem.n=head.n;
                     i.n.p=tem;
-                    l.head=tem;
+                    head=tem;
                 }
                 else{
                     while(i.d!=v){
@@ -212,16 +212,16 @@ class doubly_linkedlist {
                 }
             }
             System.out.println("NEW LIST :  ");
-            show(l);
+            show();
         }
     }
 
-    void acending(doubly_linkedlist l){
-        node i=l.head;
+    void acending(){
+        node i=head;
         node j=i;
         int tem;
         System.out.println();
-        for(i=l.head;i!=null;i=i.n){
+        for(i=head;i!=null;i=i.n){
             for(j=i;j!=null;j=j.n){
                 if(i.d>j.d){
                     tem = i.d;
@@ -233,12 +233,12 @@ class doubly_linkedlist {
         }
         System.out.println();
     }
-    void decending(doubly_linkedlist l){
-        node i=l.head;
+    void decending(){
+        node i=head;
         node j=i;
         int tem;
         System.out.println();
-        for(i=l.head;i!=null;i=i.n){
+        for(i=head;i!=null;i=i.n){
             for(j=i;j!=null;j=j.n){
                 if(i.d<j.d){
                     tem = i.d;
@@ -251,8 +251,8 @@ class doubly_linkedlist {
         System.out.println();
     }
 
-    void sorting(doubly_linkedlist l){
-        if(l.head==null){
+    void sorting(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
@@ -261,40 +261,39 @@ class doubly_linkedlist {
             System.out.print("Enter your choice : ");
             int c =p.nextInt();
             if(c==1){
-                acending(l);
+                acending();
             }
             else if(c==2){
-                decending(l);
+                decending();
             }
             else{
                 System.out.println("Enter valid Option.");
-                sorting(l);
+                sorting();
             }
         }
     }
-    node rev(doubly_linkedlist l ,node i){
+    node rev(node i){
         if(i.n==null){
             System.out.print("<--"+i.d+"-->");
             return i;
         }
         else{
-            rev(l,i.n);
+            rev(i.n);
             System.out.print("<--"+i.d+"-->");
         }
         return i;
     }
-    void reverse(doubly_linkedlist l){
-        if(l.head==null){
+    void reverse(){
+        if(head==null){
             System.out.println("List is Empty.");
         }
         else{
-            node i = l.head;
+            node i = head;
             System.out.println("REVERSED LIST : ");
-            rev(l,i);
+            rev(i);
             System.out.println();
         }
     }
-
 
 }
 class doubl{
@@ -314,42 +313,42 @@ class doubl{
                 case 1:
                 System.out.print("enter the number to be inserted : ");
                 val = sc.nextInt();
-                list.insert_f(list,val);
+                list.insert_f(val);
                 break;
             case 2:
                 System.out.print("enter the number to be inserted : ");
                 val = sc.nextInt();
-                list.insert_l(list,val);
+                list.insert_l(val);
                 break;
             case 3:
-                list.delete_f(list);
+                list.delete_f();
                 break;
             case 4:
-                list.delete_l(list);
+                list.delete_l();
                 break;
             case 5:
-                 list.show(list);
+                 list.show();
                 break;
             case 6:
-                 list.delete_random(list);
+                 list.delete_random();
                 break;
             case 7:
                 System.out.print("enter the number to be inserted : ");
                 val = sc.nextInt();
-                 list.insert_random(list,val);
+                 list.insert_random(val);
                 break;
             case 8:
-                 list.search(list);
+                 list.search();
                 break;
             case 9:
-                 list.sorting(list);
+                 list.sorting();
                 break;
             case 10: 
                 System.out.print(" ");
-                 list.reverse(list);
+                 list.reverse();
                 break;
             case 11:
-                 list.replace(list);
+                 list.replace();
                 break;
             case 12:
                 break;
@@ -360,6 +359,8 @@ class doubl{
         sc.close();
     }
 }
+
+
 
 /*OUTPUT */
 /*
